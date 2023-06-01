@@ -7,6 +7,7 @@ import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -255,5 +256,43 @@ public class CommonMethods {
 	public WebElement waitUntillElementVisible(WebDriver driver, By locator, long timeInSeconds) {
 		wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	}
+	
+	/**
+	 * Move to element and click on it
+	 * 
+	 * @param driver  - WebDriver element
+	 * @param locator - locator to identify element
+	 * @return boolean
+	 */
+	public boolean onMouseHover(WebDriver driver, By locator) {
+		try {
+			Actions action = new Actions(driver);
+			WebElement we = objecLocater(driver, locator);
+			action.moveToElement(we).click().build().perform();
+			log.debug("Clicking on element with locator: " + locator);
+			return true;
+
+		} catch (org.openqa.selenium.NoSuchElementException e) {
+			log.error("Error in <onMouseHover> " + e.getMessage());
+			return false;
+		}
+
+	}
+	
+	/**
+	 * Checks element presence in DOM
+	 * 
+	 * @param driver
+	 * @param locator
+	 * @return
+	 */
+	public boolean elementPresence(WebDriver driver, By locator) {
+		try {
+			WebElement objTemp = driver.findElement(locator);
+			return true;
+		} catch (org.openqa.selenium.NoSuchElementException e) {
+			return false;
+		}
 	}
 }
