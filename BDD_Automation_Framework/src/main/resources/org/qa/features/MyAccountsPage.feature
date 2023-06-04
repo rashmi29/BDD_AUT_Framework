@@ -14,7 +14,7 @@ Then page title should be "My Account"
 @Regression
 Scenario: Accounts section count
 Given user is on Accounts page
-Then uer gets accounts section
+Then user gets accounts section
 |MY ACCOUNT|
 |MY ORDERS|
 |MY AFFILIATE ACCOUNT|
