@@ -9,7 +9,10 @@ import org.openqa.selenium.WebDriver;
 public class CommonUtilities {
 	WebDriver driver;
 	Properties prop; 
-	File file = new File(System.getProperty("user.dir")+"\\src\\test\\resources\\DataPool\\EnvData.properties");
+	//File file = new File(System.getProperty("user.dir")+"\\src\\test\\resources\\datapool\\EnvData.properties");
+	String filepath = System.getProperty("user.dir") + File.separator + "src" + File.separator + "test" + File.separator
+			+ "resources" + File.separator + "datapool" + File.separator + "EnvData.properties";
+	File file = new File(filepath);
 
 	String TestURL ;
 	String UID;

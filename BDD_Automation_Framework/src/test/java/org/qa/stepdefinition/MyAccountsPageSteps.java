@@ -29,11 +29,12 @@ public class MyAccountsPageSteps extends ApplicationSetup {
 	}
 
 	@Then("user gets accounts section")
-	public void uer_gets_accounts_section(io.cucumber.datatable.DataTable expSectionsTable) {
+	public void user_gets_accounts_section(io.cucumber.datatable.DataTable expSectionsTable) {
 		List<String> actSectionsList = objAcctPg.getAccountSections();
 		List<String> expSectionsList = expSectionsTable.asList();
-
+		
 		for (String expSectionName : expSectionsList) {
+			System.out.println(expSectionName);
 			Assert.assertTrue(actSectionsList.contains(expSectionName));
 		}
 	}

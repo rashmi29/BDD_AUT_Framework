@@ -24,6 +24,7 @@ private WebDriver driver;
 	}
 	
 	public int getAccountSectionsCount() {
+		System.out.println(driver.findElements(accountSections).size() - 1);
 		return (driver.findElements(accountSections).size() - 1);
 	}
 	
@@ -31,9 +32,10 @@ private WebDriver driver;
 		List<WebElement> sectionsList = driver.findElements(accountSections);
 		List<String> sectionHeader = new ArrayList<String>();
 		
-		for(int i = 0; i <sectionsList.size() -1; i++) {
+		for(int i = 0; i <sectionsList.size() - 1; i++) {
 			sectionHeader.add(sectionsList.get(i).getText());
 		}
+		System.out.println(sectionHeader);
 		return sectionHeader;
 	}
 

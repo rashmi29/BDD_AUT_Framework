@@ -1,0 +1,1 @@
+mvn test -PTestSequential -DBrowser=Chrome -DEnvironment=QA

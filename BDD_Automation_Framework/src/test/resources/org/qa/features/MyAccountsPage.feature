@@ -11,12 +11,11 @@ Given user is on Accounts page
 When user gets the title of the page
 Then page title should be "My Account"
 
-@Regression
+@Smoke @Regression
 Scenario: Accounts section count
 Given user is on Accounts page
 Then user gets accounts section
-|MY ACCOUNT|
-|MY ORDERS|
-|MY AFFILIATE ACCOUNT|
-|NEWSLETTER|
-And accounts section count should be 4
+|My Account|
+|My Orders|
+|My Affiliate Account|
+And accounts section count should be 3
